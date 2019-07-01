@@ -1,0 +1,29 @@
+#! /usr/local/Cellar/icarus-verilog/10.2_1/bin/vvp
+:ivl_version "10.2 (stable)" "(v10_2)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x7fa5dc405d10 .scope module, "ha" "ha" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 16 "A"
+    .port_info 1 /INPUT 16 "B"
+    .port_info 2 /OUTPUT 16 "Sum"
+    .port_info 3 /OUTPUT 1 "Cout"
+o0x103411008 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+o0x103411038 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+L_0x7fa5dc415f80 .functor XOR 16, o0x103411008, o0x103411038, C4<0000000000000000>, C4<0000000000000000>;
+L_0x7fa5dc416050 .functor AND 16, o0x103411008, o0x103411038, C4<1111111111111111>, C4<1111111111111111>;
+v0x7fa5dc403770_0 .net "A", 15 0, o0x103411008;  0 drivers
+v0x7fa5dc415c60_0 .net "B", 15 0, o0x103411038;  0 drivers
+v0x7fa5dc415d00_0 .net "Cout", 0 0, L_0x7fa5dc416180;  1 drivers
+v0x7fa5dc415db0_0 .net "Sum", 15 0, L_0x7fa5dc415f80;  1 drivers
+v0x7fa5dc415e50_0 .net *"_s2", 15 0, L_0x7fa5dc416050;  1 drivers
+L_0x7fa5dc416180 .part L_0x7fa5dc416050, 0, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "HalfAdder.v";

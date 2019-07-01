@@ -1,0 +1,109 @@
+#! /usr/local/Cellar/icarus-verilog/10.2_1/bin/vvp
+:ivl_version "10.2 (stable)" "(v10_2)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x7fd778411780 .scope module, "AC_Control" "AC_Control" 2 1;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "AND"
+    .port_info 1 /OUTPUT 1 "SHR"
+    .port_info 2 /OUTPUT 1 "SHL"
+    .port_info 3 /OUTPUT 1 "COM"
+    .port_info 4 /OUTPUT 1 "INPT"
+    .port_info 5 /OUTPUT 1 "DR"
+    .port_info 6 /OUTPUT 1 "ADD"
+    .port_info 7 /OUTPUT 1 "Load"
+    .port_info 8 /OUTPUT 1 "INR"
+    .port_info 9 /OUTPUT 1 "CLR"
+    .port_info 10 /INPUT 8 "T"
+    .port_info 11 /INPUT 8 "D"
+    .port_info 12 /INPUT 16 "B"
+    .port_info 13 /INPUT 1 "I"
+o0x107bf6158 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x7fd778404f70 .functor NOT 1, o0x107bf6158, C4<0>, C4<0>, C4<0>;
+L_0x7fd778423b60 .functor AND 1, L_0x7fd7784239c0, L_0x7fd778423a80, C4<1>, C4<1>;
+L_0x7fd778423e50 .functor AND 1, L_0x7fd778423c90, L_0x7fd778423d70, C4<1>, C4<1>;
+L_0x7fd7784240d0 .functor AND 1, L_0x7fd778423f60, L_0x7fd778424030, C4<1>, C4<1>;
+L_0x7fd7784242e0 .functor AND 1, L_0x7fd778424200, L_0x7fd778424cf0, C4<1>, C4<1>;
+L_0x7fd7784244b0 .functor AND 1, L_0x7fd7784243d0, L_0x7fd778424cf0, C4<1>, C4<1>;
+L_0x7fd7784246b0 .functor AND 1, L_0x7fd7784245c0, L_0x7fd778424cf0, C4<1>, C4<1>;
+L_0x7fd7784248a0 .functor AND 1, L_0x7fd778424780, L_0x7fd778424cf0, C4<1>, C4<1>;
+L_0x7fd778424b10 .functor AND 1, L_0x7fd778424990, L_0x7fd778404f70, C4<1>, C4<1>;
+L_0x7fd778424cf0 .functor AND 1, L_0x7fd778424b10, L_0x7fd778424bd0, C4<1>, C4<1>;
+L_0x7fd778424e70 .functor AND 1, L_0x7fd778424cf0, L_0x7fd778424d60, C4<1>, C4<1>;
+L_0x7fd778425000 .functor AND 1, L_0x7fd778424f60, o0x107bf6158, C4<1>, C4<1>;
+L_0x7fd778424e00 .functor AND 1, L_0x7fd778425000, L_0x7fd7784250f0, C4<1>, C4<1>;
+L_0x7fd7784253a0 .functor AND 1, L_0x7fd778425300, L_0x7fd778424e00, C4<1>, C4<1>;
+L_0x7fd778425450 .functor OR 1, L_0x7fd778423b60, L_0x7fd778423e50, C4<0>, C4<0>;
+L_0x7fd778425290 .functor OR 1, L_0x7fd778425450, L_0x7fd7784240d0, C4<0>, C4<0>;
+L_0x7fd778425640 .functor OR 1, L_0x7fd778425290, L_0x7fd7784242e0, C4<0>, C4<0>;
+L_0x7fd7784257c0 .functor OR 1, L_0x7fd778425640, L_0x7fd7784244b0, C4<0>, C4<0>;
+L_0x7fd778425830 .functor OR 1, L_0x7fd7784257c0, L_0x7fd7784246b0, C4<0>, C4<0>;
+L_0x7fd7784259c0 .functor OR 1, L_0x7fd778425830, L_0x7fd7784253a0, C4<0>, C4<0>;
+v0x7fd77840b250_0 .net "ADD", 0 0, L_0x7fd778423e50;  1 drivers
+v0x7fd778421c20_0 .net "AND", 0 0, L_0x7fd778423b60;  1 drivers
+o0x107bf6068 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v0x7fd778421cc0_0 .net "B", 15 0, o0x107bf6068;  0 drivers
+v0x7fd778421d60_0 .net "CLR", 0 0, L_0x7fd778424e70;  1 drivers
+v0x7fd778421e00_0 .net "COM", 0 0, L_0x7fd7784246b0;  1 drivers
+o0x107bf60f8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0x7fd778421ee0_0 .net "D", 7 0, o0x107bf60f8;  0 drivers
+v0x7fd778421f90_0 .net "DR", 0 0, L_0x7fd7784240d0;  1 drivers
+v0x7fd778422030_0 .net "I", 0 0, o0x107bf6158;  0 drivers
+v0x7fd7784220d0_0 .net "INPT", 0 0, L_0x7fd7784253a0;  1 drivers
+v0x7fd7784221e0_0 .net "INR", 0 0, L_0x7fd7784248a0;  1 drivers
+v0x7fd778422270_0 .net "In", 0 0, L_0x7fd778404f70;  1 drivers
+v0x7fd778422310_0 .net "Load", 0 0, L_0x7fd7784259c0;  1 drivers
+v0x7fd7784223b0_0 .net "SHL", 0 0, L_0x7fd7784242e0;  1 drivers
+v0x7fd778422450_0 .net "SHR", 0 0, L_0x7fd7784244b0;  1 drivers
+o0x107bf62a8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0x7fd7784224f0_0 .net "T", 7 0, o0x107bf62a8;  0 drivers
+v0x7fd7784225a0_0 .net *"_s11", 0 0, L_0x7fd778423d70;  1 drivers
+v0x7fd778422650_0 .net *"_s15", 0 0, L_0x7fd778423f60;  1 drivers
+v0x7fd7784227e0_0 .net *"_s17", 0 0, L_0x7fd778424030;  1 drivers
+v0x7fd778422870_0 .net *"_s21", 0 0, L_0x7fd778424200;  1 drivers
+v0x7fd778422920_0 .net *"_s25", 0 0, L_0x7fd7784243d0;  1 drivers
+v0x7fd7784229d0_0 .net *"_s29", 0 0, L_0x7fd7784245c0;  1 drivers
+v0x7fd778422a80_0 .net *"_s3", 0 0, L_0x7fd7784239c0;  1 drivers
+v0x7fd778422b30_0 .net *"_s33", 0 0, L_0x7fd778424780;  1 drivers
+v0x7fd778422be0_0 .net *"_s37", 0 0, L_0x7fd778424990;  1 drivers
+v0x7fd778422c90_0 .net *"_s38", 0 0, L_0x7fd778424b10;  1 drivers
+v0x7fd778422d40_0 .net *"_s41", 0 0, L_0x7fd778424bd0;  1 drivers
+v0x7fd778422df0_0 .net *"_s45", 0 0, L_0x7fd778424d60;  1 drivers
+v0x7fd778422ea0_0 .net *"_s49", 0 0, L_0x7fd778424f60;  1 drivers
+v0x7fd778422f50_0 .net *"_s5", 0 0, L_0x7fd778423a80;  1 drivers
+v0x7fd778423000_0 .net *"_s50", 0 0, L_0x7fd778425000;  1 drivers
+v0x7fd7784230b0_0 .net *"_s53", 0 0, L_0x7fd7784250f0;  1 drivers
+v0x7fd778423160_0 .net *"_s57", 0 0, L_0x7fd778425300;  1 drivers
+v0x7fd778423210_0 .net *"_s60", 0 0, L_0x7fd778425450;  1 drivers
+v0x7fd778422700_0 .net *"_s62", 0 0, L_0x7fd778425290;  1 drivers
+v0x7fd7784234a0_0 .net *"_s64", 0 0, L_0x7fd778425640;  1 drivers
+v0x7fd778423530_0 .net *"_s66", 0 0, L_0x7fd7784257c0;  1 drivers
+v0x7fd7784235d0_0 .net *"_s68", 0 0, L_0x7fd778425830;  1 drivers
+v0x7fd778423680_0 .net *"_s9", 0 0, L_0x7fd778423c90;  1 drivers
+v0x7fd778423730_0 .net "a7", 0 0, L_0x7fd778424cf0;  1 drivers
+v0x7fd7784237d0_0 .net "a9", 0 0, L_0x7fd778424e00;  1 drivers
+L_0x7fd7784239c0 .part o0x107bf60f8, 0, 1;
+L_0x7fd778423a80 .part o0x107bf62a8, 5, 1;
+L_0x7fd778423c90 .part o0x107bf62a8, 5, 1;
+L_0x7fd778423d70 .part o0x107bf60f8, 1, 1;
+L_0x7fd778423f60 .part o0x107bf62a8, 5, 1;
+L_0x7fd778424030 .part o0x107bf60f8, 2, 1;
+L_0x7fd778424200 .part o0x107bf6068, 6, 1;
+L_0x7fd7784243d0 .part o0x107bf6068, 7, 1;
+L_0x7fd7784245c0 .part o0x107bf6068, 9, 1;
+L_0x7fd778424780 .part o0x107bf6068, 5, 1;
+L_0x7fd778424990 .part o0x107bf60f8, 7, 1;
+L_0x7fd778424bd0 .part o0x107bf62a8, 3, 1;
+L_0x7fd778424d60 .part o0x107bf6068, 11, 1;
+L_0x7fd778424f60 .part o0x107bf60f8, 7, 1;
+L_0x7fd7784250f0 .part o0x107bf62a8, 3, 1;
+L_0x7fd778425300 .part o0x107bf6068, 11, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "./AC_Control.v";

@@ -1,38 +1,36 @@
-module AC_Arthemetic_Unit(AC, AND, DR, ADD, INPR,INPT, DR0, COM, SHL, E, SHR, ACDATA, cout); 
+module AC_Arthemetic_Unit(AC, AND, DR, ADD, INPR, INPT, DR0, COM, SHL, E, SHR, ACDATA, cout); 
 	
 	input [15:0] AC, DR;
-	input[7:0] INPR;
-	input  AND, ADD, INPT, DR0,COM, SHL, E, SHR;
-	output[15:0] ACDATA; 
+	input [7:0] INPR;
+	input AND, ADD, INPT, DR0, COM, SHL, E, SHR;
+	output [15:0] ACDATA;
 	output cout;
-	wire [15:0] or1, or2, or3, or4, or5, or6, or7	;
-	wire[15:0] o4, o3, o, o1; ///hame o ha
+	wire [15:0] or1, or2, or3, or4, or5, or6, or7;
+	wire [15:0] o4, o3, o, o1; ///hame o ha
 	
-	wire[15:0] and16, add16, dr16, com16, shl16,e016, e116, shr16,a8016 ;
-	wire[7:0] inpt8	;
+	wire [15:0] and16, add16, dr16, com16, shl16, e016, e116, shr16,a8016;
+	wire [7:0] inpt8;
 	
-	assign and16=(AND ? 16'b1 :16'b0);
-	assign or1=AC & and16 & DR;	
+	assign and16 = (AND ? 16'b1 :16'b0);
+	assign or1 = AC & and16 & DR;	
 	
 	//ha h(AC,DR,Sum,Cout); 
-	assign {Cout , Sum}=DR + AC;
-	assign cout=Cout;
+	assign {Cout , Sum} = DR + AC;
+	assign cout = Cout;
 	
-	assign add16=(ADD ? 16'b1 : 16'b0);	 
-	assign or2= add16 & Sum;  
+	assign add16 = (ADD ? 16'b1 : 16'b0);	 
+	assign or2 = add16 & Sum;  
 	
+	assign dr16 = (DR0 ? 16'b1 : 16'b0); 
+	assign or3 = dr16 & DR;
 	
-	assign dr16=(DR0 ? 16'b1 : 16'b0); 
-	assign or3 =dr16 & DR;
+	assign inpt8 = (INPT ? 8'b1: 8'b0);
+	assign d = inpt8 & INPR;	
 	
-	assign inpt8=(INPT ? 8'b1: 8'b0);
-	assign d=inpt8 & INPR;	
+	assign or4 = {8'b00000000, d};   
 	
-	
-	assign or4={8'b00000000, d};   
-	
-	assign com16=(COM ? 16'b1 : 16'b0);
-	assign or5=(~AC) & com16;  
+	assign com16 = (COM ? 16'b1 : 16'b0);
+	assign or5 = (~AC) & com16;  
 	
 	assign shl16=(SHL ? 16'b1 : 16'b0); 
 	assign acshl=AC<<1;

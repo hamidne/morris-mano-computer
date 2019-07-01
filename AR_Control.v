@@ -1,4 +1,5 @@
-module AR_Control(LD, CLR, INR, T, D, R, I);	
+module AR_Control(LD, CLR, INR, T, D, R, I);
+
 	input R, I;
 	input [7:0] T, D;
 	output LD, CLR, INR;

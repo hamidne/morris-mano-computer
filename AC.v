@@ -9,10 +9,10 @@ module AC(Q, INR, Data, LD, CLK, CLR);
 	reg [15:0] out;
 	wire cout;
 
-  // assign out=16'b0;
+	// assign out=16'b0;
 	assign inr016 = INR ? 16'b0000000000000001 : 16'b0;
 
-	//ha h(inr016,out,Sum,cout); 
+	// ha h(inr016,out,Sum,cout); 
 	assign {cout, Sum} = inr016 + out;
 	if(INR)
 		assign moshtarak = Sum;
@@ -22,7 +22,7 @@ module AC(Q, INR, Data, LD, CLK, CLR);
 	wire en;
 	assign en = LD ^ INR;
 	
-	//D_FlipFlopRST16 d(out, moshtarak, CLK, en, CLR); 
+	// D_FlipFlopRST16 d(out, moshtarak, CLK, en, CLR); 
 	
 	
 	always @(posedge CLK or posedge CLR)

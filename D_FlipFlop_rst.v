@@ -1,16 +1,13 @@
-module D_FlipFlopRST(q, d, clock, enable, rst);
+module D_FlipFlopRST(Q, D, CLK, Enable, REST);
 
-	output q;
-	input d, clock, enable,rst;
+	output reg Q;
+	input D, CLK, Enable,REST;
 
-	reg q;
-
-	always @(posedge clock or posedge rst)
-		begin
-			if(rst)
-				q<=1'b0;
-			else if(enable)
-				q<=d;
-		end	
+	always @(posedge CLK or posedge REST) begin
+		if(REST)
+			Q <= 1'b0;
+		else if(Enable)
+			Q <= D;
+	end	
 	
 endmodule

@@ -1,15 +1,15 @@
 module BUS_Control(x, D, T, R, I);
-	output [7:0] x;
+
 	input R, I;
-	input[7:0] T, D;
+	input [7:0] T, D;
+	output [7:0] x;
 	
-	wire D7n, Rn;
-	wire a1, a2,a3, a8, a9, a10;
 	wire o3;
+	wire D7n, Rn;
+	wire a1, a2, a3, a8, a9, a10;
 	
 	assign D7n= ~D[7];	
 	assign Rn= ~R;	
-	
 	
 	assign a1= D[4] & T[4];
 	assign a2= D[5] & T[5];

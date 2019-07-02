@@ -1,12 +1,12 @@
-`include "AC_Control.v" 
-`include "AR_Control.v" 
-`include "PC_Control.v" 
-`include "RAM_Control.v"
-`include "DR_Control.v"	
-`include "SC_Control.v"
-`include "BUS_Control.v" 
 `include "D_FF.v" 
 `include "D_FlipFlop_rst.v"
+`include "Controllers/AC_Control.v" 
+`include "Controllers/AR_Control.v" 
+`include "Controllers/PC_Control.v" 
+`include "Controllers/RAM_Control.v"
+`include "Controllers/DR_Control.v"	
+`include "Controllers/SC_Control.v"
+`include "Controllers/BUS_Control.v"
 
 module controlUnit(T, AC, DR, cout, CLK, IR, CLRAC, INRAC, LoadAC, SHR, SHL, COM, INPT, DR1, ADD, AND, CLRAR, INRAR, LoadAR, CLRPC, INRPC, LoadPC, STR, LoadRAM, INRDR, LoadDR, CLRSC, S, LoadIR, LoadTR, E, X);
 

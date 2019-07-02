@@ -1,6 +1,5 @@
 //`include "D_FlipFlop12.v"
 
-//`include "HalfAdder.v"
 module PC(Q, INR, Data, Load, CLK, CLR);
 
 	output [11:0] Q;
@@ -12,7 +11,7 @@ module PC(Q, INR, Data, Load, CLK, CLR);
 
 	reg [15:0] out;
 	assign inr012 = INR ? 12'b000000000001 : 12'b0;
-	assign {cout , Sum} = inr012+ out;
+	assign {cout , Sum} = inr012 + out;
 
 	if (INR)
 		assign moshtarak = Sum;

@@ -8,28 +8,23 @@
 `include "AC_Arithmetic.v"	
 `include "Mux8to3.v"
 `define	BLE	16'b0
- //reg[0:15] mem[0:4095];  
-module Mainn(input CLK,output reg[15:0] mem9);	
+
+module Mainn(input CLK,output reg[15:0] mem9);
+
 	wire[15:0] write_data, read_data; 
 	reg [4095*16:0] mem2;
 	
-  reg[15:0] mem[0:4095];
- reg [15:0]r;
+	reg[15:0] mem[0:4095];
+	reg [15:0] r;
   
-  initial
-	  begin
-		 // assign r =; 	 
-		 // ass
-		 mem[0]= 16'b0010000000000111; 
-		 mem[1]=16'b0001000000001000;
-		 mem[2]=16'b0011000000001001;
-		 mem[7]	=16'b0000000000000001;
-		 mem[8]=16'b0000000000000010;
-		mem[9]=16'b0000000000000000;
-		 
-
- 
-  end	 
+	initial begin
+		mem[0] = 16'b0010000000000111; 
+		mem[1] = 16'b0001000000001000;
+		mem[2] = 16'b0011000000001001;
+		mem[7] = 16'b0000000000000001;
+		mem[8] = 16'b0000000000000010;
+		mem[9] = 16'b0000000000000000;
+	end	 
 	
  // wire[0:15] mem1[0:4095];
  
@@ -73,9 +68,9 @@ module Mainn(input CLK,output reg[15:0] mem9);
 	//assign mem[i] =memory[i];
 	
 	
-		assign compare=(INPTR<8'b0 ? 1'b1 : 1'b0);
+	assign compare = (INPTR < 8'b0 ? 1'b1 : 1'b0);
 	
-	assign Data2=Data[11:0]; 
+	assign Data2 = Data[11:0]; 
 	
 	PC ar(A, INRAR, Data2 ,LoadAR, CLK, CLRAR); 
 	
@@ -111,19 +106,17 @@ module Mainn(input CLK,output reg[15:0] mem9);
 	end	
 	assign mux6=DataTR;	
 	
-	
     controlUnit ctrlUnit(T,AC, DR,cout,CLK, IR, CLRAC, INRAC, LoadAC, SHR, SHL ,COM, INPT,LDA, ADD, AND, CLRAR, INRAR, LoadAR, CLRPC, INRPC, LoadPC, STR, LoadRAM, INRDR, LoadDR, CLRSC, S, LoadIR, LoadTR, E, X);
 	prio_enco_8x3 pdec(d_out,X);	 
 	Mulitplexer mu(16'bx, mux1,mux2,mux3, mux4, mux5, mux6, mux7,d_out,Data);
 	
-	
 	wire Cscn;
-	assign Cscn=~CLRSC;
+	assign Cscn = ~CLRSC;
     wire countCounter, loadCounter;
     wire [2:0] DataCounter, outsc;	
-	assign countCounter=Cscn & S;
-	assign loadCounter= CLRSC & S; 
-	assign DataCounter=Cscn ? 3'b001 : 3'b000;	   
+	assign countCounter = Cscn & S;
+	assign loadCounter = CLRSC & S; 
+	assign DataCounter = Cscn ? 3'b001 : 3'b000;	   
 	SequenceCounter sc (loadCounter, countCounter, DataCounter, CLK, outsc);  
 	Decoder3to8 dec(outsc, T);
 	
@@ -134,13 +127,10 @@ module Mainn(input CLK,output reg[15:0] mem9);
 	if(LoadRAM)
 		assign mux7=mem[A];
     else if(STR)
-	
-		  mem[A]=Data;
-		
+		mem[A] = Data;
   	end	 
 	  
 	 always @(CLK)
-		  	
 		assign  mem9[15:0]=mem[1];
 	
 	  

@@ -3,7 +3,7 @@
 module IEN_FlipFlop(IEN, D, T, B, I, R, CLK);
 
     output IEN;
-    input [7:0]D, [7:0]T, [7:0]B, I, R;
+    input [7:0]D, [7:0]T, [7:0]B, I, R, CLK;
 
     wire p, j, k, k1, k2;
 

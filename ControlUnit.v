@@ -1,18 +1,20 @@
- `include "AC_Control.v" 
- `include "AR_Control.v" 
- `include "PC_Control.v" 
- `include "RAM_Control.v"
- `include "DR_Control.v"	
- `include "SC_Control.v"
- `include "BUS_Control.v" 
- `include "D_FF.v" 
- `include "D_FlipFlop_rst.v"
-module controlUnit(T,AC, DR,cout,  CLK, IR, CLRAC, INRAC, LoadAC, SHR, SHL ,COM, INPT,DR1, ADD, AND, CLRAR, INRAR, LoadAR, CLRPC, INRPC, LoadPC, STR, LoadRAM, INRDR, LoadDR, CLRSC, S, LoadIR, LoadTR, E, X);
-    input CLK, cout; 
+`include "AC_Control.v" 
+`include "AR_Control.v" 
+`include "PC_Control.v" 
+`include "RAM_Control.v"
+`include "DR_Control.v"	
+`include "SC_Control.v"
+`include "BUS_Control.v" 
+`include "D_FF.v" 
+`include "D_FlipFlop_rst.v"
+
+module controlUnit(T, AC, DR, cout, CLK, IR, CLRAC, INRAC, LoadAC, SHR, SHL, COM, INPT, DR1, ADD, AND, CLRAR, INRAR, LoadAR, CLRPC, INRPC, LoadPC, STR, LoadRAM, INRDR, LoadDR, CLRSC, S, LoadIR, LoadTR, E, X);
+
+	input CLK, cout; 
 	input [15:0] IR,AC,DR;	
 	input [6:0] T;
-	wire [7:0] D ;
-	wire[15:0] B;
+	wire [7:0] D;
+	wire [15:0] B;
 	output  CLRAC, INRAC, LoadAC, SHR, SHL ,COM, INPT,DR1, ADD, AND, CLRAR, INRAR, LoadAR, CLRPC, INRPC, LoadPC, STR, LoadRAM, INRDR, LoadDR, CLRSC, S, LoadIR, LoadTR, E;
 	output [7:0] X;
 	wire [2:0] SS; 	
@@ -24,7 +26,7 @@ module controlUnit(T,AC, DR,cout,  CLK, IR, CLRAC, INRAC, LoadAC, SHR, SHL ,COM,
 	PC_Control pc(CLRPC, INRPC, LoadPC, R, I, T, D, DR, AC, B, FGI, FGO, E);  
 	RAM_Control ram(Str, Load, R, T, D, I);
 	DR_Control dr(Load, INRDR, T, D); 
-	SC_Control sc(CLRSC, T, D, R);	
+	SC_Control sc(CLRSC, T, D, R);
 	
 	assign B[0]=IR[0]; assign B[1]=IR[1];assign B[2]=IR[2];assign B[3]=IR[3];assign B[4]=IR[4];assign B[5]=IR[5];assign B[6]=IR[6];
 	assign B[7]=IR[7];assign B[8]=IR[8];assign B[9]=IR[9];assign B[10]=IR[10]; assign B[11]=IR[11]; 
@@ -49,8 +51,6 @@ module controlUnit(T,AC, DR,cout,  CLK, IR, CLRAC, INRAC, LoadAC, SHR, SHL ,COM,
 	assign  enable =Rn & T[2];
 	D_FF dffI (I, B[15], CLK, enable);  
 	
-	
-	
 	assign a1=R & T[2] ;
 	assign a2=P & B[6];
 	assign o= a1 | a2;
@@ -58,8 +58,8 @@ module controlUnit(T,AC, DR,cout,  CLK, IR, CLRAC, INRAC, LoadAC, SHR, SHL ,COM,
 	D_FlipFlopRST dffIEN(IEN, a3, CLK, a3, o);		 
 //	D_FlipFlop_rst dff1 (I, a3, Clock, a3);  	 /////////////////////?????????	  
 
-assign no=T[2] | T[0] | T[1];
-assign non=~no;
+	assign no=T[2] | T[0] | T[1];
+	assign non=~no;
 	assign o2=FGI | FGO;
 	assign a4=no & o2 & IEN;
 	assign a5=T[2] & R;	
@@ -119,14 +119,5 @@ assign non=~no;
 	assign S=a13 ? 1'b0 : a13n;
 	end */
 	D_FlipFlopRST dffS(S, a13n, CLK,, a13);
-	
-	
-	
-	
-endmodule
 
-	
-	
-	
-	
-	
+endmodule

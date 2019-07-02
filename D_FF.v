@@ -1,7 +1,7 @@
 module D_FF(qqq, ddd, ccc, eee);
-	output qqq;
+	output reg qqq;
 	input ddd, ccc, eee;
-	reg qqq; 
+	
 	if(eee)
 		begin
 			
@@ -13,7 +13,6 @@ module D_FF(qqq, ddd, ccc, eee);
 		always @(posedge ccc)
 			begin
 				qqq=ddd;
-				
 			end
 			
 	end		

@@ -1,19 +1,15 @@
-module D_FlipFlop12(q, d, clock, enable, rst);
-	output[15:0] q;
-	input[15:0] d;
-	input clock, enable,rst;
-	reg [15:0]q; 
-	always @(posedge clock or posedge rst)
+module D_FlipFlop12(Q, D, CLK, Enable, RESET);
+
+	input [15:0] D;
+	output reg [15:0] Q;
+	input CLK, Enable, RESET;
+
+	always @(posedge CLK or posedge RESET)
 		begin
-			if(rst)
-				begin
-					q<=1'b0;
-				end
-				
-			else if(enable)
-				begin
-					q<=d;
-				end
-			end	
+			if(RESET)
+				Q <= 1'b0;
+			else if(Enable)
+				Q <= D;
+		end
 	
 endmodule

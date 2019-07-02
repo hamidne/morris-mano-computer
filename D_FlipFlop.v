@@ -1,23 +1,24 @@
-module D_FlipFlop(q, d, c, e);
-	output q;
-	input d, c, e;
-	reg q, q1; 
+module D_FlipFlop(Q, D, CLK, Enable);
+
+	output Q;
+	input D, CLK, Enable;
+	reg Q, q1; 
+
 	initial
+	begin
+		if(Enable)
 		begin
-	if(e)
-		begin
-			
-	initial
-		begin 
-			q=1'b0; q1=1'b1;
-		end
-		
-		always @(posedge c)
-			begin
-				q=d;
+			initial
+				begin 
+					Q<=1'b0;
+					q1<=1'b1;
+				end
 				
-			end
-			
-	end		
-	 end
+			always @(posedge CLK)
+				begin
+					Q=D;
+				end
+		end		
+	end
+
 endmodule

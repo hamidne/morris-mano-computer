@@ -1,8 +1,8 @@
 module JK_FlipFlop(
+    output Q,
     input  J,
     input  K,
     input  CLK,
-    output Q
   );
 
   always @(posedge CLK) begin

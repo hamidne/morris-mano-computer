@@ -1,7 +1,9 @@
+`include "JK_FLipFlop.v"
+
 module IEN_FlipFlop(IEN, D, T, B, I, R, CLK);
 
     output IEN;
-    input [0:7]D, [0:7]T, [0:7]B I, R;
+    input [7:0]D, [7:0]T, [7:0]B, I, R;
 
     wire p, j, k, k1, k2;
 
@@ -13,6 +15,6 @@ module IEN_FlipFlop(IEN, D, T, B, I, R, CLK);
 
     assign k = k1 | k2;
 
-    
+    JK_FLipFlop jkff(IEN, j, k, CLK);
 
 endmodule

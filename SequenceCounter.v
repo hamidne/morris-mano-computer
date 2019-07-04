@@ -1,4 +1,4 @@
-module SequenceCounter (LD, INC, data, CLK, out);
+module SequenceCounter(LD, INC, data, CLK, out);
 
 	input LD, INC, CLK;
 	input [2:0] data;

@@ -1,4 +1,4 @@
-module Decoder3to8 (I, O);
+module Decoder3to8(I, O);
 	input [2:0] I;
 	output [7:0] O;
 	
@@ -15,4 +15,5 @@ module Decoder3to8 (I, O);
 			3'b110 : O<=8'b01000000; 
 			3'b111 : O<=8'b10000000;
 		endcase
+
 endmodule

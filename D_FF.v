@@ -1,20 +1,15 @@
-module D_FF(qqq, ddd, ccc, eee);
-	output reg qqq;
-	input ddd, ccc, eee;
-	
-	if(eee)
-		begin
-			
-	initial
-		begin 
-			qqq=1'b0; 
-		end
-		
-		always @(posedge ccc)
-			begin
-				qqq=ddd;
-			end
-			
-	end		
+module D_FF(Q, D, CLK, Enable);
+
+	output reg Q;
+	input D, CLK, Enable;
+
+	initial begin 
+		Q = 1'b0; 
+	end
+
+	always @(posedge CLK) begin
+		if(Enable)
+			Q <= D;
+	end	
 	
 endmodule

@@ -4,7 +4,6 @@
 `include "AC.v"
 `include "SequenceCounter.v"  
 `include "Priority_Encoder_8to3.v" 
-`include "Decoder3to8.v"
 `include "AC_Arithmetic.v"	
 `include "Mux8to3.v"
 `define	BLE	16'b0
